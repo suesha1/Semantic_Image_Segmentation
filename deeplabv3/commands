@@ -1,0 +1,12 @@
+python create_pascal_tf_record.py --data_dir "/home/irlab/Documents/Share/Tanvi/deeplab-rishi/VOCtrainval_11-May-2012" \
+                                  --image_data_dir "/home/irlab/Documents/Share/Tanvi/deeplab-rishi/VOCtrainval_11-May-2012/VOCdevkit/VOC2012/JPEGImages" \
+                                  --label_data_dir "/home/irlab/Documents/Share/Tanvi/deeplab-rishi/SegmentationClassAug/SegmentationClassAug" 
+                                  
+                                  
+                                  
+python train.py --model_dir "/home/irlab/Documents/Share/Tanvi/deeplab-rishi/deeplabv3plus_ver1/model" --pre_trained_model "/home/irlab/Documents/Share/Tanvi/deeplab-rishi/resnet_v2_101_2017_04_14/resnet_v2_101.ckpt"
+
+
+python train.py --train_epochs 43 --batch_size 15 --weight_decay 2e-4 --model_dir "/home/irlab/Documents/Share/Tanvi/deeplab-rishi/deeplabv3plus_ver1/model"/ba=15,wd=2e-4,max_iter=30k --max_iter 30000
+
+python inference.py --data_dir "/home/irlab/Documents/Share/Tanvi/deeplab-rishi/VOCtrainval_11-May-2012/VOCdevkit/VOC2012/JPEGImages" --infer_data_list "/home/irlab/Documents/Share/Tanvi/deeplab-rishi/tensorflow-deeplab-v3-plus-master/dataset/sample_images_list.txt" --model_dir "/home/irlab/Documents/Share/Tanvi/deeplab-rishi/deeplabv3plus_ver1/model"
